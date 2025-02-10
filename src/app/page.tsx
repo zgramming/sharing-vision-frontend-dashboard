@@ -1,101 +1,300 @@
-import Image from "next/image";
+import {
+  ActionIcon,
+  Button,
+  Card,
+  Group,
+  Stack,
+  Table,
+  TableScrollContainer,
+  TableTbody,
+  TableTh,
+  TableThead,
+  TableTr,
+  Tabs,
+  TabsList,
+  TabsPanel,
+  TabsTab,
+} from "@mantine/core";
+import {
+  IconPencilShare,
+  IconNotesOff,
+  IconTrash,
+  IconEdit,
+  IconEye,
+  IconPlus,
+} from "@tabler/icons-react";
+import Link from "next/link";
+
+export const posts = [
+  {
+    id: 1,
+    title: "How to write a blog post 1",
+    content: "This is a blog post content",
+    category: "Blog",
+    status: "published",
+  },
+  {
+    id: 2,
+    title: "How to write a blog post 2",
+    content: "This is a blog post content",
+    category: "Blog",
+    status: "drafted",
+  },
+  {
+    id: 3,
+    title: "How to write a blog post 3",
+    content: "This is a blog post content",
+    category: "Blog",
+    status: "trashed",
+  },
+  {
+    id: 4,
+    title: "How to write a blog post 4",
+    content: "This is a blog post content",
+    category: "Blog",
+    status: "published",
+  },
+  {
+    id: 5,
+    title: "How to write a blog post 5",
+    content: "This is a blog post content",
+    category: "Blog",
+    status: "drafted",
+  },
+  {
+    id: 6,
+    title: "How to write a blog post 6",
+    content: "This is a blog post content",
+    category: "Blog",
+    status: "trashed",
+  },
+  {
+    id: 7,
+    title: "How to write a blog post 7",
+    content: "This is a blog post content",
+    category: "Blog",
+    status: "published",
+  },
+  {
+    id: 8,
+    title: "How to write a blog post 8",
+    content: "This is a blog post content",
+    category: "Blog",
+    status: "drafted",
+  },
+  {
+    id: 9,
+    title: "How to write a blog post 9",
+    content: "This is a blog post content",
+    category: "Blog",
+    status: "trashed",
+  },
+  {
+    id: 10,
+    title: "How to write a blog post 10",
+    content: "This is a blog post content",
+    category: "Blog",
+    status: "published",
+  },
+  {
+    id: 11,
+    title: "How to write a blog post 11",
+    content: "This is a blog post content",
+    category: "Blog",
+    status: "drafted",
+  },
+  {
+    id: 12,
+    title: "How to write a blog post 12",
+    content: "This is a blog post content",
+    category: "Blog",
+    status: "trashed",
+  },
+  {
+    id: 13,
+    title: "How to write a blog post 13",
+    content: "This is a blog post content",
+    category: "Blog",
+    status: "published",
+  },
+  {
+    id: 14,
+    title: "How to write a blog post 14",
+    content: "This is a blog post content",
+    category: "Blog",
+  },
+];
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <Stack h={"100vh"} w={"100vw"} justify="center" align="center" bg={"gray"}>
+      <Card
+        shadow="xs"
+        withBorder
+        p={"xl"}
+        maw={{
+          base: "calc(100vw - 32px)",
+          lg: "50%",
+        }}
+      >
+        <Stack gap={"sm"}>
+          <Group justify="end">
+            <Link href="preview">
+              <Button
+                variant="light"
+                color="blue"
+                leftSection={<IconEye size={20} />}
+                type="button"
+              >
+                Preview Site
+              </Button>
+            </Link>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+            <Link href="form/new">
+              <Button
+                variant="filled"
+                color="blue"
+                leftSection={<IconPlus size={20} />}
+                type="button"
+              >
+                New Post
+              </Button>
+            </Link>
+          </Group>
+          <Tabs variant="outline" defaultValue="published">
+            <TabsList>
+              <TabsTab
+                value="published"
+                leftSection={<IconPencilShare size={12} />}
+              >
+                Published
+              </TabsTab>
+              <TabsTab value="drafted" leftSection={<IconNotesOff size={12} />}>
+                Drafts
+              </TabsTab>
+              <TabsTab value="trashed" leftSection={<IconTrash size={12} />}>
+                Trashed
+              </TabsTab>
+            </TabsList>
+
+            <TabsPanel value="published" py={"lg"}>
+              <TableScrollContainer minWidth={500}>
+                <Table striped highlightOnHover verticalSpacing={"md"}>
+                  <TableThead>
+                    <TableTr>
+                      <TableTh>No</TableTh>
+                      <TableTh>Title</TableTh>
+                      <TableTh>Category</TableTh>
+                      <TableTh>Action</TableTh>
+                    </TableTr>
+                  </TableThead>
+                  <TableTbody>
+                    {[...posts]
+                      .filter((post) => post.status === "published")
+                      .map((post, index) => {
+                        return (
+                          <TableTr key={post.id}>
+                            <TableTh>{index + 1}</TableTh>
+                            <TableTh>{post.title}</TableTh>
+                            <TableTh>{post.category.toUpperCase()}</TableTh>
+                            <TableTh>
+                              <Group justify="center">
+                                <Link href={`form/${post.id}`}>
+                                  <ActionIcon>
+                                    <IconEdit size={20} />
+                                  </ActionIcon>
+                                </Link>
+                                <ActionIcon color="red">
+                                  <IconTrash size={20} />
+                                </ActionIcon>
+                              </Group>
+                            </TableTh>
+                          </TableTr>
+                        );
+                      })}
+                  </TableTbody>
+                </Table>
+              </TableScrollContainer>
+            </TabsPanel>
+
+            <TabsPanel value="drafted" py={"lg"}>
+              <Table striped highlightOnHover verticalSpacing={"md"}>
+                <TableThead>
+                  <TableTr>
+                    <TableTh>No</TableTh>
+                    <TableTh>Title</TableTh>
+                    <TableTh>Category</TableTh>
+                    <TableTh>Action</TableTh>
+                  </TableTr>
+                </TableThead>
+                <TableTbody>
+                  {[...posts]
+                    .filter((post) => post.status === "drafted")
+                    .map((post, index) => {
+                      return (
+                        <TableTr key={post.id}>
+                          <TableTh>{index + 1}</TableTh>
+                          <TableTh>{post.title}</TableTh>
+                          <TableTh>{post.category.toUpperCase()}</TableTh>
+                          <TableTh>
+                            <Group justify="center">
+                              <Link href={`form/${post.id}`}>
+                                <ActionIcon>
+                                  <IconEdit size={20} />
+                                </ActionIcon>
+                              </Link>
+                              <ActionIcon color="red">
+                                <IconTrash size={20} />
+                              </ActionIcon>
+                            </Group>
+                          </TableTh>
+                        </TableTr>
+                      );
+                    })}
+                </TableTbody>
+              </Table>{" "}
+            </TabsPanel>
+
+            <TabsPanel value="trashed" py={"lg"}>
+              <Table striped highlightOnHover verticalSpacing={"md"}>
+                <TableThead>
+                  <TableTr>
+                    <TableTh>No</TableTh>
+                    <TableTh>Title</TableTh>
+                    <TableTh>Category</TableTh>
+                    <TableTh>Action</TableTh>
+                  </TableTr>
+                </TableThead>
+                <TableTbody>
+                  {[...posts]
+                    .filter((post) => post.status === "trashed")
+                    .map((post, index) => {
+                      return (
+                        <TableTr key={post.id}>
+                          <TableTh>{index + 1}</TableTh>
+                          <TableTh>{post.title}</TableTh>
+                          <TableTh>{post.category.toUpperCase()}</TableTh>
+                          <TableTh>
+                            <Group justify="center">
+                              <Link href={`form/${post.id}`}>
+                                <ActionIcon>
+                                  <IconEdit size={20} />
+                                </ActionIcon>
+                              </Link>
+                              <ActionIcon color="red">
+                                <IconTrash size={20} />
+                              </ActionIcon>
+                            </Group>
+                          </TableTh>
+                        </TableTr>
+                      );
+                    })}
+                </TableTbody>
+              </Table>{" "}
+            </TabsPanel>
+          </Tabs>
+        </Stack>
+      </Card>
+    </Stack>
   );
 }
